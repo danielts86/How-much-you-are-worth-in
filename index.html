@@ -34,83 +34,84 @@
     <script>
     	$( document ).ready(function() {
 		form.onchange = function () {
-		var worthValue = $("#worth-value");
-		var baseWorth = 10;
+			var worthValue = $("#worth-value");
+			var baseWorth = 10;
 
-    		var isRich = $("#rich").get(0).checked;
+			var isRich = $("#rich").get(0).checked;
 
-		if(isRich != null && isRich){
+			if(isRich != null && isRich){
+				worthValue.text(baseWorth);
+				return;
+			}
+
+			var isHasDisabilities = $("#disabilities").get(0).checked;
+			if(isHasDisabilities != null && isHasDisabilities){
+				baseWorth = 0; 
+			}
+
+			var isWoman = $("#gender").get(0).checked;
+			if(isWoman != null && isWoman){
+				baseWorth -=1; 
+			}
+
+			var isSkined = $("#skin").get(0).checked;
+			if(isSkined!= null &&isSkined){
+				baseWorth -=4; 
+			}
+
+			var weight = $("#weight").val();
+			if(isWoman != null && isWoman){
+				baseWorth -= weight * 2; 
+			} else {
+				baseWorth -= weight; 
+			}
+
+			var height = $("#height").val();
+			if(isWoman != null && isWoman){
+				baseWorth -= weight; 
+			} else {
+				baseWorth -= weight * 2; 
+			}
+
+			var isHasAccent = $("#accent").get(0).checked;
+			if(isHasAccent != null && isHasAccent){
+				baseWorth -= 2; 
+			}
+
+			var isChristian = $("#christian").get(0).checked;
+			if(isChristian != null && isChristian){
+				baseWorth -= 4; 
+			}
+
+			var isMoslem = $("#moslem").get(0).checked;
+			if(isMoslem != null && isMoslem){
+				baseWorth -= 6; 
+			}
+
+			var isGayOrLesbian = $("#gay-lesbian").get(0).checked;
+			if(isGayOrLesbian != null && isGayOrLesbian){
+				baseWorth -= 2; 
+			}
+
+			var isTrance = $("#trance").get(0).checked;
+			if(isTrance != null && isTrance){
+				baseWorth -= 5; 
+			}
+
+			var isNotFromTelAviv = $("#tel-aviv").get(0).checked;
+			if(isNotFromTelAviv != null && isNotFromTelAviv){
+				baseWorth -= 1; 
+			}
+
+			var poor = $("#poor").get(0).checked;
+			if(poor != null && poor){
+				baseWorth -= 2; 
+			}
+
 			worthValue.text(baseWorth);
-			return;
-	    	}
-
-		var isHasDisabilities = $("#disabilities").get(0).checked;
-		if(isHasDisabilities != null && isHasDisabilities){
-			baseWorth = 0; 
-	    	}
-
-	    	var isWoman = $("#gender").get(0).checked;
-		if(isWoman != null && isWoman){
-			baseWorth -=1; 
-	    	}
-
-	    	var isSkined = $("#skin").get(0).checked;
-		if(isSkined!= null &&isSkined){
-			baseWorth -=4; 
-	    	}
-
-	    	var weight = $("#weight").val();
-		if(isWoman != null && isWoman){
-			baseWorth -= weight * 2; 
-	    	} else {
-			baseWorth -= weight; 
-	    	}
-
-	    	var height = $("#height").val();
-	    	if(isWoman != null && isWoman){
-			baseWorth -= weight; 
-	    	} else {
-			baseWorth -= weight * 2; 
-	    	}
-
-	    	var isHasAccent = $("#accent").get(0).checked;
-	    	if(isHasAccent != null && isHasAccent){
-			baseWorth -= 2; 
-	    	}
-
-	    	var isChristian = $("#christian").get(0).checked;
-		if(isChristian != null && isChristian){
-			baseWorth -= 4; 
-	    	}
-
-	    	var isMoslem = $("#moslem").get(0).checked;
-	    	if(isMoslem != null && isMoslem){
-			baseWorth -= 6; 
-	    	}
-
-	    	var isGayOrLesbian = $("#gay-lesbian").get(0).checked;
-		if(isGayOrLesbian != null && isGayOrLesbian){
-			baseWorth -= 2; 
-	    	}
-
-	    	var isTrance = $("#trance").get(0).checked;
-		if(isTrance != null && isTrance){
-			baseWorth -= 5; 
-	    	}
-
-	    	var isNotFromTelAviv = $("#tel-aviv").get(0).checked;
-		if(isNotFromTelAviv != null && isNotFromTelAviv){
-			baseWorth -= 1; 
-	    	}
-
-	    	var poor = $("#poor").get(0).checked;
-		if(poor != null && poor){
-			baseWorth -= 2; 
-	    	}
-
-	    	worthValue.text(baseWorth);
+	
+		}
 	});
-}
     </script>
     <title>כמה אתם שווים בחברה?!</title>
   </head>
