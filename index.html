@@ -68,9 +68,9 @@
 
 			var height = $("#height").val();
 			if(isWoman != null && isWoman){
-				baseWorth -= weight; 
+				baseWorth -= height; 
 			} else {
-				baseWorth -= weight * 2; 
+				baseWorth -= height * 2; 
 			}
 
 			var isHasAccent = $("#accent").get(0).checked;
@@ -107,7 +107,11 @@
 			if(poor != null && poor){
 				baseWorth -= 2; 
 			}
-
+			if(baseWorth <0){
+				baseWorth = baseWorth * -1;
+				baseWorth += " מינוס"
+			}
+			
 			worthValue.text(baseWorth);
 	
 		}
