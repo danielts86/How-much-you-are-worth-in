@@ -108,8 +108,8 @@
 				baseWorth -= 2; 
 			}
 			if(baseWorth <0){
-				baseWorth = baseWorth * -1;
-				baseWorth += " מינוס"
+				var newWorth = baseWorth * -1;
+				baseWorth += " מינוס" + newWorth;
 			}
 			
 			worthValue.text(baseWorth);
